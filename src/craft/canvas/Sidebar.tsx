@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { useSession, signOut } from 'next-auth/react';
+import { signOut } from 'next-auth/react';
 import { useState, useEffect } from 'react';
 
 const navItems = [
@@ -12,15 +12,40 @@ const navItems = [
   { href: '/drift', icon: 'settings',    label: 'Settings' },
 ];
 
+// TODO(extension): browser internal links (chrome://, edge://, brave://, about:)
+// are blocked by the browser sandbox from web pages. Re-enable once the Chrome
+// extension is built and navigation is handled via chrome.tabs.update().
+//
+// type BrowserLinks = { bookmarks: string; downloads: string; history: string } | null;
+//
+// function detectBrowserLinks(): BrowserLinks {
+//   const ua = navigator.userAgent;
+//   const uad = (navigator as { userAgentData?: { brands: { brand: string }[] } }).userAgentData;
+//   const brands = uad?.brands?.map(b => b.brand) ?? [];
+//
+//   if (brands.some(b => b.includes('Brave')))
+//     return { bookmarks: 'brave://bookmarks', downloads: 'brave://downloads', history: 'brave://history' };
+//   if (brands.some(b => b.includes('Microsoft Edge')) || /Edg\//.test(ua))
+//     return { bookmarks: 'edge://favorites', downloads: 'edge://downloads', history: 'edge://history' };
+//   if (brands.some(b => b.includes('Google Chrome') || b.includes('Chromium')) || /Chrome\//.test(ua))
+//     return { bookmarks: 'chrome://bookmarks', downloads: 'chrome://downloads', history: 'chrome://history' };
+//   if (/Firefox\//.test(ua))
+//     return { bookmarks: 'about:bookmarks', downloads: 'about:downloads', history: 'about:history' };
+//   return null;
+// }
+//
+// const BROWSER_NAV = [
+//   { key: 'bookmarks', icon: 'bookmarks',  label: 'Bookmarks' },
+//   { key: 'downloads', icon: 'download',   label: 'Downloads' },
+//   { key: 'history',   icon: 'history',    label: 'History'   },
+// ] as const;
+
 const COLLAPSED_KEY = 'morrow_sidebar_collapsed';
 const EXPANDED_W = 280;
 const COLLAPSED_W = 64;
 
-export default function Sidebar() {
+export default function Sidebar({ displayName }: { displayName: string }) {
   const path = usePathname();
-  const { data: session } = useSession();
-  const user = session?.user as { displayName?: string } | undefined;
-  const displayName = user?.displayName || 'You';
   const initial = displayName.charAt(0).toUpperCase();
 
   const [collapsed, setCollapsed] = useState(false);
@@ -110,6 +135,9 @@ export default function Sidebar() {
               </Link>
             );
           })}
+
+          {/* TODO(extension): browser shortcuts (Bookmarks, Downloads, History)
+              commented until chrome.tabs.update() is available in the extension */}
         </nav>
 
         {/* User pill */}

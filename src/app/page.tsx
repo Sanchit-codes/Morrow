@@ -63,14 +63,15 @@ const HeroSection = ({ onNext }: { onNext: () => void }) => (
     <div className="relative z-10 max-w-[1400px] mx-auto px-8 w-full h-full flex flex-col justify-center pb-20">
       <FadeUp delay={0.2}>
         <h1 className="text-5xl md:text-6xl lg:text-[80px] font-sans font-semibold mb-4 md:mb-6 leading-[1.05] tracking-tight">
-          <span className="text-[#d8cdbf]">Focussing on the</span>
+          <span className="text-[#d8cdbf]">Your browser tab,</span>
           <br />
-          <span className="text-[#d8a876]">power of teams</span>
+          <span className="text-[#d8a876]">finally yours.</span>
         </h1>
       </FadeUp>
       <FadeUp delay={0.3}>
         <p className="text-[#e2ddd8] text-base md:text-[18px] max-w-lg mb-8 md:mb-12">
-          Unlocking the key to connect and synergise for you.
+          Stop staring at a blank page. Morrow turns every new tab into a
+          focused workspace built around how you think.
         </p>
       </FadeUp>
       <FadeUp delay={0.4}>
@@ -78,7 +79,7 @@ const HeroSection = ({ onNext }: { onNext: () => void }) => (
           onClick={onNext}
           className="inline-flex items-center justify-center px-10 py-4 bg-gradient-to-r from-[#ffe4c4] to-[#cba37b] text-[#543818] font-semibold rounded-full shadow-glow hover:brightness-110 active:shadow-sunken transition-all duration-300 hover:-translate-y-0.5"
         >
-          Feeling this
+          Show me how
         </button>
       </FadeUp>
     </div>
@@ -98,44 +99,44 @@ const AboutSection = () => (
             className="font-label text-[10px] md:text-xs tracking-[0.2em] uppercase"
             style={{ color: "var(--color-primary)" }}
           >
-            Core Philosophy
+            What is Morrow
           </span>
           <h2
             className="font-sans text-3xl md:text-4xl lg:text-5xl font-semibold leading-tight tracking-tight"
             style={{ color: "var(--color-on-surface)" }}
           >
-            Beyond Browsing:
+            Less tab, more
             <br className="hidden md:block" />
             <span style={{ color: "var(--color-primary-container)" }}>
               {" "}
-              A Digital Sanctuary
+              command center.
             </span>
           </h2>
           <p
             className="max-w-lg mx-auto lg:mx-0 mt-2 lg:mt-4 text-[14px] lg:text-[17px] leading-relaxed"
             style={{ color: "var(--color-on-surface-variant)" }}
           >
-            A tool built for focus, privacy, and the power of deep work. Escape
-            the noise of the modern web with a browser designed as a physical
-            extension of your desk.
+            Everything you reach for in the first five minutes of a session —
+            search, shortcuts, tasks, watchlist — in one place that stays out of
+            your way.
           </p>
         </FadeUp>
         <ul className="space-y-6 lg:space-y-8 hidden md:block">
           {[
             {
               icon: "touch_app",
-              title: "Tactile Utility",
-              desc: "A physical-feeling interface designed to reduce cognitive load.",
+              title: "Tactile by design",
+              desc: "Surfaces that feel pressed, recessed, real. A UI you can almost touch.",
             },
             {
               icon: "shield_lock",
-              title: "Privacy by Design",
-              desc: "No tracking, no email required—just you and your desk.",
+              title: "No noise, ever",
+              desc: "No news feed, no ads, no tracking. Just what you put there.",
             },
             {
               icon: "widgets",
-              title: "Custom Workflows",
-              desc: "Tailor your dashboard with quick-access cards.",
+              title: "Your layout, your rules",
+              desc: "Five dashboard modes, custom cards, categories — shaped to your workflow.",
             },
           ].map((item, i) => (
             <FadeUp key={i} delay={0.3 + i * 0.1} className="flex gap-6 group">
@@ -629,44 +630,44 @@ const NocturnalSection = () => (
             className="font-label text-[10px] md:text-xs tracking-[0.2em] uppercase"
             style={{ color: "var(--color-primary)" }}
           >
-            Visual Experience
+            Visual Design
           </span>
           <h2
             className="font-sans text-3xl md:text-4xl lg:text-5xl font-semibold leading-tight tracking-tight"
             style={{ color: "var(--color-on-surface)" }}
           >
-            The Nocturnal
+            Dark by default,
             <br className="hidden lg:block" />
             <span style={{ color: "var(--color-primary-container)" }}>
               {" "}
-              Experience
+              warm by choice.
             </span>
           </h2>
           <p
             className="max-w-lg mx-auto lg:mx-0 text-[14px] lg:text-[17px] leading-relaxed"
             style={{ color: "var(--color-on-surface-variant)" }}
           >
-            Built exclusively for dark mode. Morrow uses deep charcoal tones and
-            meticulously calibrated contrast to reduce eye strain during
-            extended deep-work sessions.
+            Not just a dark mode. Every shade was picked for long sessions in
+            low light — warm amber against deep charcoal, with contrast that
+            doesn't punish your eyes at midnight.
           </p>
         </FadeUp>
         <ul className="space-y-6 hidden md:block">
           {[
             {
               icon: "brightness_4",
-              title: "Optimized for low-light",
-              desc: "Perfect for late night deep work blocks.",
+              title: "Low-light native",
+              desc: "Calibrated for the hours after sunset, not adapted from a light theme.",
             },
             {
               icon: "wb_incandescent",
-              title: "Reduced blue light",
-              desc: "Warm hues to protect your circadian rhythm.",
+              title: "Amber over blue",
+              desc: "Warm tones that won't disrupt your sleep or your focus.",
             },
             {
               icon: "blur_on",
-              title: "Amber visual anchors",
-              desc: "Subtle glowing elements guide attention without distraction.",
+              title: "Glow with purpose",
+              desc: "Every highlight guides your eye without competing for attention.",
             },
           ].map((item, i) => (
             <FadeUp key={i} delay={0.3 + i * 0.1} className="flex gap-6 group">
@@ -745,13 +746,13 @@ const CtaSection = ({
           className="font-sans text-4xl sm:text-5xl md:text-[72px] leading-[1.05] font-semibold mb-6 md:mb-8 max-w-3xl tracking-tight"
           style={{ color: "var(--color-on-surface)" }}
         >
-          Your focus is your
+          Open a new tab.
           <br />
           <span
             className="font-medium italic"
             style={{ color: "rgba(251,195,138,0.8)" }}
           >
-            most valuable asset.
+            Mean it this time.
           </span>
         </h2>
       </FadeUp>
@@ -794,6 +795,29 @@ const CtaSection = ({
           <path d="M16 8 Q 8 20, 16 32 T 16 56" />
           <path d="M8 16 L16 8 L24 16" />
         </svg>
+      </div>
+    </FadeUp>
+    <FadeUp delay={0.7} className="absolute bottom-6 left-8 z-30">
+      <div className="flex items-center gap-4">
+        <a
+          href="https://github.com/Sanchit-codes/Morrow"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="font-label text-[10px] uppercase tracking-[0.2em] opacity-30 hover:opacity-70 transition-opacity duration-300"
+          style={{ color: "var(--color-primary)" }}
+        >
+          Visit GitHub
+        </a>
+        <span className="opacity-20" style={{ color: "var(--color-primary)" }}>
+          ·
+        </span>
+        <a
+          className="font-label text-[10px] uppercase tracking-[0.2em] opacity-30"
+          style={{ color: "var(--color-primary)" }}
+          href="https://linkedin.com/in/lnsanchit"
+        >
+          by Sanchit
+        </a>
       </div>
     </FadeUp>
   </div>
@@ -882,10 +906,17 @@ export default function LandingPage() {
         fontFamily: "var(--font-body)",
       }}
     >
-      {/* Wordmark
+      {/* Wordmark */}
       <div className="absolute top-6 left-8 z-50">
-        <Image src="/morrow.png" alt="Morrow" width={88} height={26} style={{ objectFit: 'contain' }} priority />
-      </div> */}
+        <Image
+          src="/morrow.png"
+          alt="Morrow"
+          width={50}
+          height={26}
+          style={{ objectFit: "contain" }}
+          priority
+        />
+      </div>
 
       {/* Nav */}
       <div className="absolute top-6 right-16 md:right-24 z-50 flex gap-4 items-center">
