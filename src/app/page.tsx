@@ -912,7 +912,7 @@ export default function LandingPage() {
           src="/morrow.png"
           alt="Morrow"
           width={50}
-          height={26}
+          height={50}
           style={{ objectFit: "contain" }}
           priority
         />

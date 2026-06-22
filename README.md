@@ -6,10 +6,10 @@
 
 <!-- [LOGO: Morrow wordmark — "Mor" bold canvas-primary + "row" regular on dark bg, ~280px wide] -->
 
-<h1>Morrow</h1>
+<h1>Morrow</h1> 
 
 **Your browser's new tab, redesigned.**  
-A personal dashboard that replaces the default new tab page — built for focus, not distraction.
+A personal dashboard that replaces the default new tab page, built for focus, not distraction.
 
 <br />
 
@@ -18,47 +18,30 @@ A personal dashboard that replaces the default new tab page — built for focus,
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind-v4-06B6D4?style=flat-square&logo=tailwindcss&logoColor=white)](https://tailwindcss.com)
 [![MongoDB](https://img.shields.io/badge/MongoDB-Atlas-47A248?style=flat-square&logo=mongodb&logoColor=white)](https://www.mongodb.com/atlas)
 
-</div>
-
 ---
+
+<img src="https://i.kwin.in/r/morrow-hero.avif" style="max-width: 600px; padding: 20px;"> 
+
+</div>
 
 ## Overview
 
 Morrow replaces your browser's new tab with a focused personal workspace. Quick-launch shortcuts, a unified search bar, to-dos, a watchlist, and settings — all in one place, shaped around how you actually work.
 
 <!-- [SCREENSHOT: landing page hero section with scroll animation visible] -->
+<img src="https://i.kwin.in/r/layout-clean.avif" style="max-width: 600px;padding: 20px;">
 
----
 
 ## Features
 
-|                         |                                                                     |
-| ----------------------- | ------------------------------------------------------------------- |
-| **5 Dashboard Layouts** | Grid, Stream, Compact, Bento, Zen — switch any time from Settings   |
-| **Smart Search**        | Google, DuckDuckGo, Ecosia, or Bing — your pick                     |
-| **Quick-Launch Cards**  | Preset + fully custom shortcuts with label, icon, URL, and category |
-| **To-Do List**          | Lightweight task management on the Focus page                       |
-| **Watch Queue**         | Save and track anything you want to watch later                     |
-| **Themes**              | Amber, Nocturnal, Slate, Forest, Rose                               |
-| **Onboarding**          | 3-step setup — greeting, search engine, cards                       |
+- **5 Dashboard Layouts** — Grid, Stream, Compact, Bento, Zen. Switch between layouts instantly from Settings.
+- **Smart Search** — Choose your engine: Google, DuckDuckGo, Ecosia, or Bing.
+- **Quick-Launch Cards** — Preset shortcuts or fully custom cards with label, icon, URL, and category.
+- **To-Do List** — Lightweight task management on the Focus page.
+- **Watch Queue** — Save links and track things you want to watch or read later.
+- **5 Themes** — Amber, Nocturnal, Slate, Forest, Rose.
+- **3-Step Onboarding** — Set your greeting, search engine preference, and card layout in under a minute.
 
-<!-- [SCREENSHOT GRID: 2×2 showing grid layout / stream layout / bento layout / drift settings page] -->
-
----
-
-## Stack
-
-```
-Next.js 16 (App Router)   →  framework
-NextAuth v5               →  auth (credentials + JWT)
-MongoDB Atlas + Mongoose  →  database
-Tailwind v4               →  styling (@theme tokens, no config file)
-Motion (Framer Motion 12) →  animations
-Material Symbols Outlined →  icons (canvas)
-Lucide React              →  icons (landing / gate / onboarding)
-```
-
----
 
 ## Getting Started
 
@@ -93,10 +76,6 @@ yarn install
 yarn dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000).
-
----
-
 ## Project Structure
 
 ```
@@ -116,7 +95,6 @@ src/
 └── schema/                       ← shared TypeScript interfaces
 ```
 
----
 
 ## Route Flow
 
@@ -128,10 +106,6 @@ src/
 /home    →  dashboard (auth required)
 ```
 
-<!-- [SCREENSHOT: onboarding flow — step 2 (search engine selection)] -->
-
----
-
 ## Deploy to Vercel
 
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/your-username/morrow&env=MONGODB_URI,AUTH_SECRET,NEXTAUTH_URL&envDescription=See%20.env.local%20setup%20in%20the%20README&project-name=morrow&repository-name=morrow)
@@ -141,7 +115,7 @@ src/
 3. Add the three env vars when prompted (`MONGODB_URI`, `AUTH_SECRET`, `NEXTAUTH_URL`)
 4. Deploy — Vercel auto-detects Next.js, no config needed
 
-Set `NEXTAUTH_URL` to your Vercel deployment URL (e.g. `https://morrow.vercel.app`).
+
 
 ---
 
