@@ -10,7 +10,7 @@ export default function CanvasShell({ children }: { children: React.ReactNode })
   useEffect(() => {
     const apply = () => {
       const collapsed = localStorage.getItem(COLLAPSED_KEY) === 'true';
-      setMarginLeft(collapsed ? 64 : 280);
+      setMarginLeft(collapsed ? 74 : 322);
     };
     apply();
 

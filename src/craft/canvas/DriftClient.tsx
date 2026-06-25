@@ -71,18 +71,18 @@ const DEFAULT_CATEGORIES = ['All', 'Work', 'Design', 'Dev', 'Personal'];
 /* ─── Helpers ─── */
 
 function SectionLabel({ text }: { text: string }) {
-  return <p style={{ fontSize: '11px', letterSpacing: '0.14em', textTransform: 'uppercase', color: 'var(--canvas-on-surface-variant)', opacity: 0.55, margin: '0 0 10px' }}>{text}</p>;
+  return <p style={{ fontSize: '13px', letterSpacing: '0.14em', textTransform: 'uppercase', color: 'var(--canvas-on-surface-variant)', opacity: 0.55, margin: '0 0 12px' }}>{text}</p>;
 }
 
 function SectionTitle({ label }: { label: string }) {
-  return <h3 style={{ fontFamily: 'var(--font-canvas-heading)', fontSize: '20px', fontWeight: 700, color: 'var(--canvas-on-surface)', letterSpacing: '-0.01em', margin: '0 0 6px' }}>{label}</h3>;
+  return <h3 style={{ fontFamily: 'var(--font-canvas-heading)', fontSize: '23px', fontWeight: 700, color: 'var(--canvas-on-surface)', letterSpacing: '-0.01em', margin: '0 0 7px' }}>{label}</h3>;
 }
 
 function SaveBtn({ onClick, saved }: { onClick: () => void; saved: boolean }) {
   return (
     <button onClick={onClick} style={{
-      marginTop: '24px', padding: '11px 28px', borderRadius: '10px', border: 'none', cursor: 'pointer',
-      fontSize: '13px', fontWeight: 600,
+      marginTop: '28px', padding: '13px 32px', borderRadius: '12px', border: 'none', cursor: 'pointer',
+      fontSize: '15px', fontWeight: 600,
       background: saved ? 'var(--canvas-surface-high)' : 'var(--canvas-primary)',
       color: saved ? 'var(--canvas-on-surface-variant)' : 'var(--canvas-bg)',
       fontFamily: 'var(--font-canvas-body)', transition: 'all 0.3s ease',
@@ -186,11 +186,11 @@ export default function DriftClient({ userId, displayName: initDisplayName, pref
 
       {/* ── Left nav ── */}
       <div style={{
-        width: '190px', flexShrink: 0, padding: '48px 12px 48px 24px',
+        width: '219px', flexShrink: 0, padding: '55px 14px 55px 28px',
         display: 'flex', flexDirection: 'column', gap: '2px',
         borderRight: '1px solid rgba(255,255,255,0.04)',
       }}>
-        <p style={{ fontSize: '11px', letterSpacing: '0.15em', textTransform: 'uppercase', color: 'var(--canvas-on-surface-variant)', opacity: 0.5, marginBottom: '12px', paddingLeft: '8px' }}>
+        <p style={{ fontSize: '13px', letterSpacing: '0.15em', textTransform: 'uppercase', color: 'var(--canvas-on-surface-variant)', opacity: 0.5, marginBottom: '14px', paddingLeft: '9px' }}>
           Settings
         </p>
         {navItems.map(item => {
@@ -198,14 +198,14 @@ export default function DriftClient({ userId, displayName: initDisplayName, pref
           return (
             <button key={item.id} onClick={() => setActiveSection(item.id)} style={{
               display: 'flex', alignItems: 'center', gap: '10px',
-              padding: '9px 12px', borderRadius: '10px', border: 'none', cursor: 'pointer',
-              textAlign: 'left', width: '100%', fontSize: '13px', fontWeight: active ? 600 : 400,
+              padding: '10px 14px', borderRadius: '12px', border: 'none', cursor: 'pointer',
+              textAlign: 'left', width: '100%', fontSize: '15px', fontWeight: active ? 600 : 400,
               background: active ? 'var(--canvas-surface-high)' : 'transparent',
               color: active ? 'var(--canvas-primary)' : 'var(--canvas-on-surface-variant)',
               boxShadow: active ? `inset 3px 3px 6px var(--canvas-shadow-dark), inset -3px -3px 6px var(--canvas-shadow-light)` : 'none',
               fontFamily: 'var(--font-canvas-body)', transition: 'all 0.15s ease',
             }}>
-              <span className="material-symbols-outlined" style={{ fontSize: '17px', fontVariationSettings: active ? "'FILL' 1" : "'FILL' 0" }}>{item.icon}</span>
+              <span className="material-symbols-outlined" style={{ fontSize: '20px', fontVariationSettings: active ? "'FILL' 1" : "'FILL' 0" }}>{item.icon}</span>
               {item.label}
             </button>
           );
@@ -213,45 +213,43 @@ export default function DriftClient({ userId, displayName: initDisplayName, pref
       </div>
 
       {/* ── Content ── */}
-      <div style={{ flex: 1, padding: '48px 56px', maxWidth: '740px', overflowY: 'auto' }}>
+      <div style={{ flex: 1, padding: '55px 64px', maxWidth: '851px', overflowY: 'auto' }}>
 
         {/* ══════ APPEARANCE ══════ */}
         {activeSection === 'appearance' && (
           <div>
             <SectionTitle label="Appearance" />
-            <p style={{ fontSize: '13px', color: 'var(--canvas-on-surface-variant)', marginBottom: '28px' }}>Theme and accent color for your workspace.</p>
+            <p style={{ fontSize: '15px', color: 'var(--canvas-on-surface-variant)', marginBottom: '32px' }}>Theme and accent color for your workspace.</p>
 
             <SectionLabel text="Theme" />
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '10px', marginBottom: '28px' }}>
+            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px', marginBottom: '32px' }}>
               {THEMES.map(t => {
                 const active = theme === t.id;
                 return (
                   <button key={t.id} onClick={() => setTheme(t.id as typeof theme)} style={{
-                    borderRadius: '14px', border: active ? `1.5px solid var(--canvas-primary)` : '1.5px solid rgba(255,255,255,0.05)',
-                    padding: '14px 16px', cursor: 'pointer', textAlign: 'left',
+                    borderRadius: '16px', border: active ? `1.5px solid var(--canvas-primary)` : '1.5px solid rgba(255,255,255,0.05)',
+                    padding: '16px 18px', cursor: 'pointer', textAlign: 'left',
                     background: active ? 'var(--canvas-surface-high)' : 'var(--canvas-surface)',
-                    boxShadow: active
-                      ? `inset 3px 3px 6px var(--canvas-shadow-dark), inset -3px -3px 6px var(--canvas-shadow-light)`
-                      : `inset 3px 3px 6px var(--canvas-shadow-dark), inset -3px -3px 6px var(--canvas-shadow-light)`,
+                    boxShadow: `inset 3px 3px 6px var(--canvas-shadow-dark), inset -3px -3px 6px var(--canvas-shadow-light)`,
                     transition: 'all 0.2s ease', position: 'relative',
                   }}>
-                    <div style={{ display: 'flex', gap: '5px', marginBottom: '8px', alignItems: 'center' }}>
-                      <div style={{ width: '26px', height: '18px', borderRadius: '4px', background: t.bg, border: '1px solid rgba(255,255,255,0.1)' }} />
-                      <div style={{ width: '18px', height: '18px', borderRadius: '4px', background: t.surface }} />
-                      <div style={{ width: '10px', height: '10px', borderRadius: '50%', background: t.primary, marginLeft: '3px', boxShadow: `0 0 6px ${t.primary}70` }} />
+                    <div style={{ display: 'flex', gap: '5px', marginBottom: '9px', alignItems: 'center' }}>
+                      <div style={{ width: '30px', height: '21px', borderRadius: '5px', background: t.bg, border: '1px solid rgba(255,255,255,0.1)' }} />
+                      <div style={{ width: '21px', height: '21px', borderRadius: '5px', background: t.surface }} />
+                      <div style={{ width: '12px', height: '12px', borderRadius: '50%', background: t.primary, marginLeft: '3px', boxShadow: `0 0 6px ${t.primary}70` }} />
                     </div>
-                    <span style={{ fontSize: '13px', fontWeight: 600, color: 'var(--canvas-on-surface)' }}>{t.label}</span>
-                    {active && <span className="material-symbols-outlined" style={{ position: 'absolute', top: '10px', right: '10px', fontSize: '15px', color: 'var(--canvas-primary)', fontVariationSettings: "'FILL' 1" }}>check_circle</span>}
+                    <span style={{ fontSize: '15px', fontWeight: 600, color: 'var(--canvas-on-surface)' }}>{t.label}</span>
+                    {active && <span className="material-symbols-outlined" style={{ position: 'absolute', top: '12px', right: '12px', fontSize: '17px', color: 'var(--canvas-primary)', fontVariationSettings: "'FILL' 1" }}>check_circle</span>}
                   </button>
                 );
               })}
             </div>
 
             <SectionLabel text="Accent color" />
-            <div className="canvas-recessed" style={{ display: 'flex', gap: '10px', padding: '16px', borderRadius: '12px' }}>
+            <div className="canvas-recessed" style={{ display: 'flex', gap: '12px', padding: '18px', borderRadius: '14px' }}>
               {ACCENTS.map(color => (
                 <button key={color} onClick={() => setAccentColor(color)} style={{
-                  width: '34px', height: '34px', borderRadius: '50%', border: 'none', cursor: 'pointer', background: color,
+                  width: '39px', height: '39px', borderRadius: '50%', border: 'none', cursor: 'pointer', background: color,
                   boxShadow: accentColor === color ? `0 0 0 3px var(--canvas-bg), 0 0 0 5px ${color}` : `inset 2px 2px 4px rgba(0,0,0,0.4)`,
                   transition: 'box-shadow 0.2s ease',
                 }} />
@@ -266,27 +264,27 @@ export default function DriftClient({ userId, displayName: initDisplayName, pref
         {activeSection === 'layout' && (
           <div>
             <SectionTitle label="Layout" />
-            <p style={{ fontSize: '13px', color: 'var(--canvas-on-surface-variant)', marginBottom: '28px' }}>Choose how categories and quick actions appear on your home dashboard.</p>
+            <p style={{ fontSize: '15px', color: 'var(--canvas-on-surface-variant)', marginBottom: '32px' }}>Choose how categories and quick actions appear on your home dashboard.</p>
 
             {/* ── Dashboard layout picker ── */}
             <SectionLabel text="Dashboard layout" />
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '10px', marginBottom: '32px' }}>
+            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px', marginBottom: '37px' }}>
               {DASHBOARD_LAYOUTS.map(layout => {
                 const active = dashboardLayout === layout.id;
                 return (
                   <button key={layout.id} onClick={() => setDashboardLayout(layout.id)} style={{
-                    borderRadius: '14px', border: active ? '1.5px solid var(--canvas-primary)' : '1.5px solid rgba(255,255,255,0.05)',
-                    padding: '14px 16px', cursor: 'pointer', textAlign: 'left',
+                    borderRadius: '16px', border: active ? '1.5px solid var(--canvas-primary)' : '1.5px solid rgba(255,255,255,0.05)',
+                    padding: '16px 18px', cursor: 'pointer', textAlign: 'left',
                     background: active ? 'var(--canvas-surface-high)' : 'var(--canvas-surface)',
                     boxShadow: `inset 3px 3px 6px var(--canvas-shadow-dark), inset -3px -3px 6px var(--canvas-shadow-light)`,
                     transition: 'all 0.2s ease', position: 'relative',
                   }}>
-                    <div style={{ marginBottom: '10px' }}>
+                    <div style={{ marginBottom: '12px' }}>
                       <LayoutPreview id={layout.id} />
                     </div>
-                    <p style={{ fontSize: '13px', fontWeight: 600, color: 'var(--canvas-on-surface)', margin: '0 0 2px' }}>{layout.label}</p>
-                    <p style={{ fontSize: '11px', color: 'var(--canvas-on-surface-variant)', opacity: 0.6, margin: 0 }}>{layout.desc}</p>
-                    {active && <span className="material-symbols-outlined" style={{ position: 'absolute', top: '10px', right: '10px', fontSize: '15px', color: 'var(--canvas-primary)', fontVariationSettings: "'FILL' 1" }}>check_circle</span>}
+                    <p style={{ fontSize: '15px', fontWeight: 600, color: 'var(--canvas-on-surface)', margin: '0 0 2px' }}>{layout.label}</p>
+                    <p style={{ fontSize: '13px', color: 'var(--canvas-on-surface-variant)', opacity: 0.6, margin: 0 }}>{layout.desc}</p>
+                    {active && <span className="material-symbols-outlined" style={{ position: 'absolute', top: '12px', right: '12px', fontSize: '17px', color: 'var(--canvas-primary)', fontVariationSettings: "'FILL' 1" }}>check_circle</span>}
                   </button>
                 );
               })}
@@ -294,57 +292,57 @@ export default function DriftClient({ userId, displayName: initDisplayName, pref
 
             {/* ── Categories ── */}
             <SectionLabel text="Categories" />
-            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px', marginBottom: '12px' }}>
+            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '9px', marginBottom: '14px' }}>
               {categories.map(cat => (
                 <div key={cat} style={{
-                  display: 'flex', alignItems: 'center', gap: '6px', padding: '6px 12px', borderRadius: '9999px',
+                  display: 'flex', alignItems: 'center', gap: '6px', padding: '7px 14px', borderRadius: '9999px',
                   background: 'var(--canvas-surface-high)',
                   boxShadow: `inset 2px 2px 4px var(--canvas-shadow-dark), inset -2px -2px 4px var(--canvas-shadow-light)`,
                 }}>
-                  <span style={{ fontSize: '13px', color: 'var(--canvas-on-surface)' }}>{cat}</span>
+                  <span style={{ fontSize: '15px', color: 'var(--canvas-on-surface)' }}>{cat}</span>
                   {categories.length > 1 && (
                     <button onClick={() => setCategories(p => p.filter(c => c !== cat))} style={{
-                      width: '16px', height: '16px', borderRadius: '50%', border: 'none', cursor: 'pointer',
+                      width: '18px', height: '18px', borderRadius: '50%', border: 'none', cursor: 'pointer',
                       background: 'rgba(255,255,255,0.08)', color: 'var(--canvas-on-surface-variant)',
                       display: 'flex', alignItems: 'center', justifyContent: 'center', padding: 0,
                     }}>
-                      <span className="material-symbols-outlined" style={{ fontSize: '11px' }}>close</span>
+                      <span className="material-symbols-outlined" style={{ fontSize: '13px' }}>close</span>
                     </button>
                   )}
                 </div>
               ))}
             </div>
-            <div style={{ display: 'flex', gap: '8px', marginBottom: '32px' }}>
-              <div className="canvas-recessed" style={{ flex: 1, borderRadius: '10px', display: 'flex', alignItems: 'center', padding: '0 14px', height: '40px' }}>
+            <div style={{ display: 'flex', gap: '9px', marginBottom: '37px' }}>
+              <div className="canvas-recessed" style={{ flex: 1, borderRadius: '12px', display: 'flex', alignItems: 'center', padding: '0 16px', height: '46px' }}>
                 <input value={newCategory} onChange={e => setNewCategory(e.target.value)}
                   onKeyDown={e => { if (e.key === 'Enter' && newCategory.trim() && !categories.includes(newCategory.trim())) { setCategories(p => [...p, newCategory.trim()]); setNewCategory(''); } }}
                   placeholder="New category..."
-                  style={{ flex: 1, background: 'transparent', border: 'none', outline: 'none', fontSize: '13px', color: 'var(--canvas-on-surface)', fontFamily: 'var(--font-canvas-body)' }} />
+                  style={{ flex: 1, background: 'transparent', border: 'none', outline: 'none', fontSize: '15px', color: 'var(--canvas-on-surface)', fontFamily: 'var(--font-canvas-body)' }} />
               </div>
               <button onClick={() => { const t = newCategory.trim(); if (t && !categories.includes(t)) { setCategories(p => [...p, t]); setNewCategory(''); } }} style={{
-                padding: '0 16px', height: '40px', borderRadius: '10px', border: 'none', cursor: 'pointer',
-                fontSize: '13px', fontWeight: 600, background: 'var(--canvas-primary)', color: 'var(--canvas-bg)', fontFamily: 'var(--font-canvas-body)',
+                padding: '0 18px', height: '46px', borderRadius: '12px', border: 'none', cursor: 'pointer',
+                fontSize: '15px', fontWeight: 600, background: 'var(--canvas-primary)', color: 'var(--canvas-bg)', fontFamily: 'var(--font-canvas-body)',
               }}>Add</button>
             </div>
 
             {/* ── Preset quick actions ── */}
             <SectionLabel text="Quick actions — preset" />
-            <div className="canvas-recessed" style={{ borderRadius: '14px', overflow: 'hidden', marginBottom: '20px' }}>
+            <div className="canvas-recessed" style={{ borderRadius: '16px', overflow: 'hidden', marginBottom: '23px' }}>
               {PRESET_CARDS.map((card, i) => {
                 const enabled = enabledCards.includes(card.id);
                 const assignedCat = presetCardCategories[card.id] || 'Work';
                 return (
                   <div key={card.id} style={{
-                    display: 'flex', alignItems: 'center', gap: '14px', padding: '10px 18px',
+                    display: 'flex', alignItems: 'center', gap: '16px', padding: '12px 21px',
                     borderBottom: i < PRESET_CARDS.length - 1 ? '1px solid rgba(255,255,255,0.04)' : 'none',
                   }}>
-                    <span className="material-symbols-outlined" style={{ fontSize: '18px', color: 'var(--canvas-primary)', fontVariationSettings: "'FILL' 1" }}>{card.icon}</span>
-                    <span style={{ fontSize: '14px', color: 'var(--canvas-on-surface)', minWidth: '72px' }}>{card.label}</span>
+                    <span className="material-symbols-outlined" style={{ fontSize: '21px', color: 'var(--canvas-primary)', fontVariationSettings: "'FILL' 1" }}>{card.icon}</span>
+                    <span style={{ fontSize: '16px', color: 'var(--canvas-on-surface)', minWidth: '83px' }}>{card.label}</span>
                     {/* Category chips */}
                     <div style={{ flex: 1, display: 'flex', gap: '5px', flexWrap: 'wrap' }}>
                       {categories.filter(c => c !== 'All').map(cat => (
                         <button key={cat} onClick={() => setPresetCardCategories(p => ({ ...p, [card.id]: cat }))} style={{
-                          padding: '3px 10px', borderRadius: '9999px', border: 'none', cursor: 'pointer', fontSize: '11px', fontWeight: 500,
+                          padding: '3px 12px', borderRadius: '9999px', border: 'none', cursor: 'pointer', fontSize: '13px', fontWeight: 500,
                           background: assignedCat === cat ? 'var(--canvas-primary)' : 'var(--canvas-surface-highest)',
                           color: assignedCat === cat ? 'var(--canvas-bg)' : 'var(--canvas-on-surface-variant)',
                           fontFamily: 'var(--font-canvas-body)', transition: 'all 0.15s ease',
@@ -352,13 +350,13 @@ export default function DriftClient({ userId, displayName: initDisplayName, pref
                       ))}
                     </div>
                     <button onClick={() => setEnabledCards(p => enabled ? p.filter(id => id !== card.id) : [...p, card.id])} style={{
-                      width: '40px', height: '22px', borderRadius: '11px', border: 'none', cursor: 'pointer', position: 'relative', flexShrink: 0,
+                      width: '46px', height: '25px', borderRadius: '13px', border: 'none', cursor: 'pointer', position: 'relative', flexShrink: 0,
                       background: enabled ? 'var(--canvas-primary)' : 'var(--canvas-surface-highest)',
                       transition: 'background 0.2s ease',
                     }}>
                       <div style={{
-                        width: '16px', height: '16px', borderRadius: '50%', position: 'absolute', top: '3px',
-                        left: enabled ? '21px' : '3px', background: enabled ? 'var(--canvas-bg)' : 'var(--canvas-on-surface-variant)',
+                        width: '18px', height: '18px', borderRadius: '50%', position: 'absolute', top: '4px',
+                        left: enabled ? '24px' : '4px', background: enabled ? 'var(--canvas-bg)' : 'var(--canvas-on-surface-variant)',
                         transition: 'left 0.2s ease',
                       }} />
                     </button>
@@ -368,11 +366,11 @@ export default function DriftClient({ userId, displayName: initDisplayName, pref
             </div>
 
             {/* ── Custom quick actions ── */}
-            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '10px' }}>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '12px' }}>
               <SectionLabel text="Quick actions — custom" />
               <button onClick={() => setShowAddForm(v => !v)} style={{
-                padding: '5px 14px', borderRadius: '8px', border: 'none', cursor: 'pointer',
-                fontSize: '12px', fontWeight: 600, background: 'var(--canvas-surface-high)', color: 'var(--canvas-primary)',
+                padding: '6px 16px', borderRadius: '9px', border: 'none', cursor: 'pointer',
+                fontSize: '14px', fontWeight: 600, background: 'var(--canvas-surface-high)', color: 'var(--canvas-primary)',
                 boxShadow: `-2px -2px 4px var(--canvas-shadow-light), 2px 2px 4px var(--canvas-shadow-dark)`,
                 fontFamily: 'var(--font-canvas-body)',
               }}>
@@ -381,16 +379,16 @@ export default function DriftClient({ userId, displayName: initDisplayName, pref
             </div>
 
             {showAddForm && (
-              <div className="canvas-recessed" style={{ borderRadius: '14px', padding: '16px', marginBottom: '12px', display: 'flex', flexDirection: 'column', gap: '10px' }}>
+              <div className="canvas-recessed" style={{ borderRadius: '16px', padding: '18px', marginBottom: '14px', display: 'flex', flexDirection: 'column', gap: '12px' }}>
                 <input value={newLabel} onChange={e => setNewLabel(e.target.value)} placeholder="Label (e.g. GitHub)" style={inputStyle} />
                 <input value={newUrl} onChange={e => setNewUrl(e.target.value)} placeholder="URL (e.g. https://github.com)" style={inputStyle} />
                 {/* Category assignment */}
                 <div>
-                  <p style={{ fontSize: '12px', color: 'var(--canvas-on-surface-variant)', margin: '0 0 6px' }}>Category</p>
-                  <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px' }}>
+                  <p style={{ fontSize: '14px', color: 'var(--canvas-on-surface-variant)', margin: '0 0 7px' }}>Category</p>
+                  <div style={{ display: 'flex', flexWrap: 'wrap', gap: '7px' }}>
                     {categories.map(cat => (
                       <button key={cat} onClick={() => setNewActionCategory(cat)} style={{
-                        padding: '5px 14px', borderRadius: '9999px', border: 'none', cursor: 'pointer', fontSize: '12px', fontWeight: 500,
+                        padding: '6px 16px', borderRadius: '9999px', border: 'none', cursor: 'pointer', fontSize: '14px', fontWeight: 500,
                         background: newActionCategory === cat ? 'var(--canvas-primary)' : 'var(--canvas-surface-highest)',
                         color: newActionCategory === cat ? 'var(--canvas-bg)' : 'var(--canvas-on-surface-variant)',
                         fontFamily: 'var(--font-canvas-body)', transition: 'all 0.15s ease',
@@ -398,16 +396,16 @@ export default function DriftClient({ userId, displayName: initDisplayName, pref
                     ))}
                   </div>
                 </div>
-                <p style={{ fontSize: '12px', color: 'var(--canvas-on-surface-variant)', margin: 0 }}>Icon</p>
-                <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px', maxHeight: '160px', overflowY: 'auto' }}>
+                <p style={{ fontSize: '14px', color: 'var(--canvas-on-surface-variant)', margin: 0 }}>Icon</p>
+                <div style={{ display: 'flex', flexWrap: 'wrap', gap: '7px', maxHeight: '184px', overflowY: 'auto' }}>
                   {ICON_OPTIONS.map(ico => (
                     <button key={ico} onClick={() => setNewIcon(ico)} title={ico} style={{
-                      width: '34px', height: '34px', borderRadius: '8px', border: 'none', cursor: 'pointer',
+                      width: '39px', height: '39px', borderRadius: '9px', border: 'none', cursor: 'pointer',
                       background: newIcon === ico ? 'var(--canvas-primary)' : 'var(--canvas-surface-highest)',
                       color: newIcon === ico ? 'var(--canvas-bg)' : 'var(--canvas-on-surface-variant)',
                       display: 'flex', alignItems: 'center', justifyContent: 'center', transition: 'all 0.15s ease',
                     }}>
-                      <span className="material-symbols-outlined" style={{ fontSize: '17px', fontVariationSettings: "'FILL' 1" }}>{ico}</span>
+                      <span className="material-symbols-outlined" style={{ fontSize: '20px', fontVariationSettings: "'FILL' 1" }}>{ico}</span>
                     </button>
                   ))}
                 </div>
@@ -416,31 +414,31 @@ export default function DriftClient({ userId, displayName: initDisplayName, pref
                   setCustomActions(p => [...p, { id: crypto.randomUUID(), label: newLabel.trim(), icon: newIcon, url: newUrl.trim(), category: newActionCategory }]);
                   setNewLabel(''); setNewUrl(''); setNewIcon('link'); setNewActionCategory('All'); setShowAddForm(false);
                 }} style={{
-                  padding: '9px 20px', borderRadius: '9px', border: 'none', cursor: 'pointer',
-                  fontSize: '13px', fontWeight: 600, background: 'var(--canvas-primary)', color: 'var(--canvas-bg)',
+                  padding: '10px 23px', borderRadius: '10px', border: 'none', cursor: 'pointer',
+                  fontSize: '15px', fontWeight: 600, background: 'var(--canvas-primary)', color: 'var(--canvas-bg)',
                   fontFamily: 'var(--font-canvas-body)', alignSelf: 'flex-start',
                 }}>Add shortcut</button>
               </div>
             )}
 
             {customActions.length > 0 && (
-              <div className="canvas-recessed" style={{ borderRadius: '14px', overflow: 'hidden', marginBottom: '4px' }}>
+              <div className="canvas-recessed" style={{ borderRadius: '16px', overflow: 'hidden', marginBottom: '4px' }}>
                 {customActions.map((action, i) => (
                   <div key={action.id} style={{
-                    display: 'flex', alignItems: 'center', gap: '12px', padding: '12px 18px',
+                    display: 'flex', alignItems: 'center', gap: '14px', padding: '14px 21px',
                     borderBottom: i < customActions.length - 1 ? '1px solid rgba(255,255,255,0.04)' : 'none',
                   }}>
-                    <span className="material-symbols-outlined" style={{ fontSize: '18px', color: 'var(--canvas-primary)', fontVariationSettings: "'FILL' 1" }}>{action.icon}</span>
+                    <span className="material-symbols-outlined" style={{ fontSize: '21px', color: 'var(--canvas-primary)', fontVariationSettings: "'FILL' 1" }}>{action.icon}</span>
                     <div style={{ flex: 1, minWidth: 0 }}>
-                      <p style={{ fontSize: '13px', fontWeight: 600, color: 'var(--canvas-on-surface)', margin: 0 }}>{action.label}</p>
-                      <p style={{ fontSize: '11px', color: 'var(--canvas-on-surface-variant)', opacity: 0.6, margin: 0, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{action.url} · <span style={{ color: 'var(--canvas-primary)', opacity: 0.8 }}>{action.category || 'All'}</span></p>
+                      <p style={{ fontSize: '15px', fontWeight: 600, color: 'var(--canvas-on-surface)', margin: 0 }}>{action.label}</p>
+                      <p style={{ fontSize: '13px', color: 'var(--canvas-on-surface-variant)', opacity: 0.6, margin: 0, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{action.url} · <span style={{ color: 'var(--canvas-primary)', opacity: 0.8 }}>{action.category || 'All'}</span></p>
                     </div>
                     <button onClick={() => setCustomActions(p => p.filter(a => a.id !== action.id))} style={{
-                      width: '28px', height: '28px', borderRadius: '7px', border: 'none', cursor: 'pointer',
+                      width: '32px', height: '32px', borderRadius: '8px', border: 'none', cursor: 'pointer',
                       background: 'rgba(186,26,26,0.15)', color: '#ffdad6',
                       display: 'flex', alignItems: 'center', justifyContent: 'center',
                     }}>
-                      <span className="material-symbols-outlined" style={{ fontSize: '15px' }}>close</span>
+                      <span className="material-symbols-outlined" style={{ fontSize: '17px' }}>close</span>
                     </button>
                   </div>
                 ))}
@@ -455,34 +453,34 @@ export default function DriftClient({ userId, displayName: initDisplayName, pref
         {activeSection === 'search' && (
           <div>
             <SectionTitle label="Search & Greeting" />
-            <p style={{ fontSize: '13px', color: 'var(--canvas-on-surface-variant)', marginBottom: '28px' }}>Search engine and greeting name shown on your dashboard.</p>
+            <p style={{ fontSize: '15px', color: 'var(--canvas-on-surface-variant)', marginBottom: '32px' }}>Search engine and greeting name shown on your dashboard.</p>
 
             <SectionLabel text="Search engine" />
-            <div className="canvas-recessed" style={{ borderRadius: '14px', overflow: 'hidden', marginBottom: '28px' }}>
+            <div className="canvas-recessed" style={{ borderRadius: '16px', overflow: 'hidden', marginBottom: '32px' }}>
               {ENGINES.map((eng, i) => (
                 <button key={eng.value} onClick={() => setSearchEngine(eng.value as typeof searchEngine)} style={{
                   display: 'flex', alignItems: 'center', justifyContent: 'space-between',
-                  padding: '13px 18px', border: 'none', cursor: 'pointer', textAlign: 'left', width: '100%',
+                  padding: '15px 21px', border: 'none', cursor: 'pointer', textAlign: 'left', width: '100%',
                   borderBottom: i < ENGINES.length - 1 ? '1px solid rgba(255,255,255,0.04)' : 'none',
                   background: searchEngine === eng.value ? 'var(--canvas-surface-high)' : 'transparent',
                   color: searchEngine === eng.value ? 'var(--canvas-on-surface)' : 'var(--canvas-on-surface-variant)',
-                  fontSize: '14px', fontWeight: 500, fontFamily: 'var(--font-canvas-body)', transition: 'all 0.15s ease',
+                  fontSize: '16px', fontWeight: 500, fontFamily: 'var(--font-canvas-body)', transition: 'all 0.15s ease',
                 }}>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-                    <span className="material-symbols-outlined" style={{ fontSize: '18px', color: 'var(--canvas-primary)' }}>{eng.icon}</span>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '14px' }}>
+                    <span className="material-symbols-outlined" style={{ fontSize: '21px', color: 'var(--canvas-primary)' }}>{eng.icon}</span>
                     {eng.label}
                   </div>
-                  {searchEngine === eng.value && <span className="material-symbols-outlined" style={{ fontSize: '17px', color: 'var(--canvas-primary)', fontVariationSettings: "'FILL' 1" }}>check_circle</span>}
+                  {searchEngine === eng.value && <span className="material-symbols-outlined" style={{ fontSize: '20px', color: 'var(--canvas-primary)', fontVariationSettings: "'FILL' 1" }}>check_circle</span>}
                 </button>
               ))}
             </div>
 
             <SectionLabel text="Greeting name" />
-            <div className="canvas-recessed" style={{ borderRadius: '12px', display: 'flex', alignItems: 'center', padding: '0 18px', height: '50px', marginBottom: '6px' }}>
+            <div className="canvas-recessed" style={{ borderRadius: '14px', display: 'flex', alignItems: 'center', padding: '0 21px', height: '58px', marginBottom: '7px' }}>
               <input value={greeting} onChange={e => setGreeting(e.target.value)} placeholder={`e.g. "Sanchit J"`}
-                style={{ flex: 1, background: 'transparent', border: 'none', outline: 'none', fontSize: '14px', color: 'var(--canvas-on-surface)', fontFamily: 'var(--font-canvas-body)' }} />
+                style={{ flex: 1, background: 'transparent', border: 'none', outline: 'none', fontSize: '16px', color: 'var(--canvas-on-surface)', fontFamily: 'var(--font-canvas-body)' }} />
             </div>
-            <p style={{ fontSize: '12px', color: 'var(--canvas-on-surface-variant)', opacity: 0.5 }}>Appears in "Good morning, [name]." on your dashboard.</p>
+            <p style={{ fontSize: '14px', color: 'var(--canvas-on-surface-variant)', opacity: 0.5 }}>Appears in "Good morning, [name]." on your dashboard.</p>
 
             <SaveBtn onClick={() => save({ searchEngine, greeting })} saved={saved} />
           </div>
@@ -492,19 +490,19 @@ export default function DriftClient({ userId, displayName: initDisplayName, pref
         {activeSection === 'account' && (
           <div>
             <SectionTitle label="Account" />
-            <p style={{ fontSize: '13px', color: 'var(--canvas-on-surface-variant)', marginBottom: '28px' }}>Manage your profile and data.</p>
+            <p style={{ fontSize: '15px', color: 'var(--canvas-on-surface-variant)', marginBottom: '32px' }}>Manage your profile and data.</p>
 
             <SectionLabel text="Display name" />
-            <div className="canvas-recessed" style={{ borderRadius: '12px', display: 'flex', alignItems: 'center', padding: '0 18px', height: '50px', marginBottom: '4px' }}>
+            <div className="canvas-recessed" style={{ borderRadius: '14px', display: 'flex', alignItems: 'center', padding: '0 21px', height: '58px', marginBottom: '4px' }}>
               <input value={displayNameVal} onChange={e => setDisplayNameVal(e.target.value)} placeholder="Your display name"
-                style={{ flex: 1, background: 'transparent', border: 'none', outline: 'none', fontSize: '14px', color: 'var(--canvas-on-surface)', fontFamily: 'var(--font-canvas-body)' }} />
+                style={{ flex: 1, background: 'transparent', border: 'none', outline: 'none', fontSize: '16px', color: 'var(--canvas-on-surface)', fontFamily: 'var(--font-canvas-body)' }} />
             </div>
 
             <SaveBtn onClick={() => save({ displayName: displayNameVal })} saved={saved} />
 
-            <div style={{ marginTop: '40px', padding: '20px 24px', borderRadius: '14px', border: '1px dashed rgba(186,26,26,0.3)' }}>
-              <p style={{ fontSize: '14px', fontWeight: 600, color: '#ffdad6', margin: '0 0 4px' }}>Reset data</p>
-              <p style={{ fontSize: '13px', color: 'var(--canvas-on-surface-variant)', margin: '0 0 16px' }}>Permanently deletes all To-Do items and Watch List entries. Preferences and themes are kept.</p>
+            <div style={{ marginTop: '46px', padding: '23px 28px', borderRadius: '16px', border: '1px dashed rgba(186,26,26,0.3)' }}>
+              <p style={{ fontSize: '16px', fontWeight: 600, color: '#ffdad6', margin: '0 0 4px' }}>Reset data</p>
+              <p style={{ fontSize: '15px', color: 'var(--canvas-on-surface-variant)', margin: '0 0 18px' }}>Permanently deletes all To-Do items and Watch List entries. Preferences and themes are kept.</p>
               <button disabled={resetting} onClick={async () => {
                 if (!confirm('Delete all todos and watch list items? This cannot be undone.')) return;
                 setResetting(true);
@@ -512,8 +510,8 @@ export default function DriftClient({ userId, displayName: initDisplayName, pref
                 router.refresh();
                 setResetting(false);
               }} style={{
-                padding: '9px 20px', borderRadius: '10px', border: 'none', cursor: resetting ? 'default' : 'pointer',
-                fontSize: '13px', fontWeight: 600, background: 'rgba(186,26,26,0.15)', color: '#ffdad6',
+                padding: '10px 23px', borderRadius: '12px', border: 'none', cursor: resetting ? 'default' : 'pointer',
+                fontSize: '15px', fontWeight: 600, background: 'rgba(186,26,26,0.15)', color: '#ffdad6',
                 fontFamily: 'var(--font-canvas-body)', opacity: resetting ? 0.6 : 1,
                 boxShadow: `-2px -2px 4px var(--canvas-shadow-light), 2px 2px 4px var(--canvas-shadow-dark)`,
               }}>
@@ -530,6 +528,6 @@ export default function DriftClient({ userId, displayName: initDisplayName, pref
 
 const inputStyle: React.CSSProperties = {
   width: '100%', background: 'var(--canvas-surface-highest)', border: '1px solid rgba(255,255,255,0.05)',
-  outline: 'none', fontSize: '14px', color: 'var(--canvas-on-surface)',
-  fontFamily: 'var(--font-canvas-body)', boxSizing: 'border-box', padding: '10px 14px', borderRadius: '10px',
+  outline: 'none', fontSize: '16px', color: 'var(--canvas-on-surface)',
+  fontFamily: 'var(--font-canvas-body)', boxSizing: 'border-box', padding: '12px 16px', borderRadius: '12px',
 };

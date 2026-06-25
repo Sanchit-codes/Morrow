@@ -69,10 +69,10 @@ function LiveClock() {
   }, []);
   if (!time) return null;
   return (
-    <div style={{ display: 'flex', alignItems: 'center', gap: '10px', color: 'var(--canvas-on-surface-variant)', opacity: 0.5 }}>
-      <span style={{ fontFamily: 'var(--font-canvas-heading)', fontSize: '15px', fontWeight: 600, letterSpacing: '0.04em' }}>{time}</span>
-      <span style={{ width: '1px', height: '14px', background: 'currentColor', opacity: 0.4 }} />
-      <span style={{ fontFamily: 'var(--font-canvas-body)', fontSize: '13px' }}>{date}</span>
+    <div style={{ display: 'flex', alignItems: 'center', gap: '12px', color: 'var(--canvas-on-surface-variant)', opacity: 0.5 }}>
+      <span style={{ fontFamily: 'var(--font-canvas-heading)', fontSize: '17px', fontWeight: 600, letterSpacing: '0.04em' }}>{time}</span>
+      <span style={{ width: '1px', height: '16px', background: 'currentColor', opacity: 0.4 }} />
+      <span style={{ fontFamily: 'var(--font-canvas-body)', fontSize: '15px' }}>{date}</span>
     </div>
   );
 }
@@ -91,16 +91,16 @@ function GridCard({ card }: { card: CardItem }) {
   const [hov, setHov] = useState(false);
   return (
     <CardLink card={card} onMouseEnter={() => setHov(true)} onMouseLeave={() => setHov(false)} style={{
-      display: 'flex', alignItems: 'center', gap: '16px', padding: '18px 20px', borderRadius: '16px', textDecoration: 'none',
+      display: 'flex', alignItems: 'center', gap: '18px', padding: '21px 23px', borderRadius: '18px', textDecoration: 'none',
       background: hov ? 'var(--canvas-surface-high)' : 'var(--canvas-surface)',
       border: hov ? '1px solid rgba(255,255,255,0.08)' : '1px solid rgba(255,255,255,0.02)',
       boxShadow: hov ? `-3px -3px 6px var(--canvas-shadow-light), 3px 3px 6px var(--canvas-shadow-dark)` : `inset 3px 3px 7px var(--canvas-shadow-dark), inset -3px -3px 7px var(--canvas-shadow-light)`,
       transition: 'all 0.2s ease', cursor: 'pointer',
     }}>
-      <div style={{ width: '42px', height: '42px', borderRadius: '12px', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, background: 'var(--canvas-surface-high)', color: hov ? 'var(--canvas-primary)' : 'var(--canvas-on-surface-variant)', boxShadow: `inset 3px 3px 6px var(--canvas-shadow-dark), inset -3px -3px 6px var(--canvas-shadow-light)`, transition: 'color 0.2s ease' }}>
-        <span className="material-symbols-outlined" style={{ fontSize: '20px', fontVariationSettings: hov ? "'FILL' 1" : "'FILL' 0" }}>{card.icon}</span>
+      <div style={{ width: '48px', height: '48px', borderRadius: '14px', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, background: 'var(--canvas-surface-high)', color: hov ? 'var(--canvas-primary)' : 'var(--canvas-on-surface-variant)', boxShadow: `inset 3px 3px 6px var(--canvas-shadow-dark), inset -3px -3px 6px var(--canvas-shadow-light)`, transition: 'color 0.2s ease' }}>
+        <span className="material-symbols-outlined" style={{ fontSize: '23px', fontVariationSettings: hov ? "'FILL' 1" : "'FILL' 0" }}>{card.icon}</span>
       </div>
-      <span style={{ fontSize: '14px', fontWeight: 600, color: hov ? 'var(--canvas-on-surface)' : 'var(--canvas-on-surface-variant)', fontFamily: 'var(--font-canvas-body)', transition: 'color 0.2s ease' }}>{card.label}</span>
+      <span style={{ fontSize: '16px', fontWeight: 600, color: hov ? 'var(--canvas-on-surface)' : 'var(--canvas-on-surface-variant)', fontFamily: 'var(--font-canvas-body)', transition: 'color 0.2s ease' }}>{card.label}</span>
     </CardLink>
   );
 }
@@ -109,14 +109,14 @@ function StreamCard({ card }: { card: CardItem }) {
   const [hov, setHov] = useState(false);
   return (
     <CardLink card={card} onMouseEnter={() => setHov(true)} onMouseLeave={() => setHov(false)} style={{
-      display: 'flex', alignItems: 'center', gap: '8px', padding: '9px 16px', borderRadius: '9999px', textDecoration: 'none',
+      display: 'flex', alignItems: 'center', gap: '9px', padding: '10px 18px', borderRadius: '9999px', textDecoration: 'none',
       background: hov ? 'var(--canvas-surface-high)' : 'var(--canvas-surface)',
       border: hov ? '1px solid rgba(255,255,255,0.08)' : '1px solid rgba(255,255,255,0.02)',
       boxShadow: hov ? `-2px -2px 5px var(--canvas-shadow-light), 2px 2px 5px var(--canvas-shadow-dark)` : `inset 2px 2px 5px var(--canvas-shadow-dark), inset -2px -2px 5px var(--canvas-shadow-light)`,
       transition: 'all 0.2s ease', cursor: 'pointer',
     }}>
-      <span className="material-symbols-outlined" style={{ fontSize: '16px', color: hov ? 'var(--canvas-primary)' : 'var(--canvas-on-surface-variant)', fontVariationSettings: hov ? "'FILL' 1" : "'FILL' 0", transition: 'color 0.2s ease' }}>{card.icon}</span>
-      <span style={{ fontSize: '13px', fontWeight: 500, color: hov ? 'var(--canvas-on-surface)' : 'var(--canvas-on-surface-variant)', fontFamily: 'var(--font-canvas-body)', transition: 'color 0.2s ease', whiteSpace: 'nowrap' }}>{card.label}</span>
+      <span className="material-symbols-outlined" style={{ fontSize: '18px', color: hov ? 'var(--canvas-primary)' : 'var(--canvas-on-surface-variant)', fontVariationSettings: hov ? "'FILL' 1" : "'FILL' 0", transition: 'color 0.2s ease' }}>{card.icon}</span>
+      <span style={{ fontSize: '15px', fontWeight: 500, color: hov ? 'var(--canvas-on-surface)' : 'var(--canvas-on-surface-variant)', fontFamily: 'var(--font-canvas-body)', transition: 'color 0.2s ease', whiteSpace: 'nowrap' }}>{card.label}</span>
     </CardLink>
   );
 }
@@ -125,14 +125,14 @@ function CompactCard({ card }: { card: CardItem }) {
   const [hov, setHov] = useState(false);
   return (
     <CardLink card={card} title={card.label} onMouseEnter={() => setHov(true)} onMouseLeave={() => setHov(false)} style={{
-      width: '56px', height: '56px', borderRadius: '16px', textDecoration: 'none',
+      width: '64px', height: '64px', borderRadius: '18px', textDecoration: 'none',
       display: 'flex', alignItems: 'center', justifyContent: 'center',
       background: hov ? 'var(--canvas-surface-high)' : 'var(--canvas-surface)',
       border: hov ? '1px solid rgba(255,255,255,0.08)' : '1px solid rgba(255,255,255,0.02)',
       boxShadow: hov ? `-2px -2px 5px var(--canvas-shadow-light), 2px 2px 5px var(--canvas-shadow-dark)` : `inset 2px 2px 5px var(--canvas-shadow-dark), inset -2px -2px 5px var(--canvas-shadow-light)`,
       transition: 'all 0.2s ease', cursor: 'pointer',
     }}>
-      <span className="material-symbols-outlined" style={{ fontSize: '22px', color: hov ? 'var(--canvas-primary)' : 'var(--canvas-on-surface-variant)', fontVariationSettings: hov ? "'FILL' 1" : "'FILL' 0", transition: 'color 0.2s ease' }}>{card.icon}</span>
+      <span className="material-symbols-outlined" style={{ fontSize: '25px', color: hov ? 'var(--canvas-primary)' : 'var(--canvas-on-surface-variant)', fontVariationSettings: hov ? "'FILL' 1" : "'FILL' 0", transition: 'color 0.2s ease' }}>{card.icon}</span>
     </CardLink>
   );
 }
@@ -141,14 +141,14 @@ function BentoSquare({ card }: { card: CardItem }) {
   const [hov, setHov] = useState(false);
   return (
     <CardLink card={card} title={card.label} onMouseEnter={() => setHov(true)} onMouseLeave={() => setHov(false)} style={{
-      aspectRatio: '1/1', borderRadius: '18px', textDecoration: 'none',
+      aspectRatio: '1/1', borderRadius: '21px', textDecoration: 'none',
       display: 'flex', alignItems: 'center', justifyContent: 'center',
       background: hov ? 'var(--canvas-surface-high)' : 'var(--canvas-surface)',
       border: hov ? '1px solid rgba(255,255,255,0.08)' : '1px solid rgba(255,255,255,0.02)',
       boxShadow: hov ? `-3px -3px 6px var(--canvas-shadow-light), 3px 3px 6px var(--canvas-shadow-dark)` : `inset 3px 3px 7px var(--canvas-shadow-dark), inset -3px -3px 7px var(--canvas-shadow-light)`,
       transition: 'all 0.2s ease', cursor: 'pointer',
     }}>
-      <span className="material-symbols-outlined" style={{ fontSize: '26px', color: hov ? 'var(--canvas-primary)' : 'var(--canvas-on-surface-variant)', fontVariationSettings: hov ? "'FILL' 1" : "'FILL' 0", transition: 'color 0.2s ease' }}>{card.icon}</span>
+      <span className="material-symbols-outlined" style={{ fontSize: '30px', color: hov ? 'var(--canvas-primary)' : 'var(--canvas-on-surface-variant)', fontVariationSettings: hov ? "'FILL' 1" : "'FILL' 0", transition: 'color 0.2s ease' }}>{card.icon}</span>
     </CardLink>
   );
 }
@@ -157,25 +157,25 @@ function BentoPanel({ title, cards }: { title: string; cards: CardItem[] }) {
   const [hov, setHov] = useState<string | null>(null);
   return (
     <div style={{
-      borderRadius: '18px', padding: '20px 22px', display: 'flex', flexDirection: 'column', gap: '2px',
+      borderRadius: '21px', padding: '23px 25px', display: 'flex', flexDirection: 'column', gap: '2px',
       background: 'var(--canvas-surface)',
       border: '1px solid rgba(255,255,255,0.04)',
       boxShadow: `inset 3px 3px 7px var(--canvas-shadow-dark), inset -3px -3px 7px var(--canvas-shadow-light)`,
     }}>
-      <p style={{ fontSize: '10px', letterSpacing: '0.16em', textTransform: 'uppercase', color: 'var(--canvas-primary)', opacity: 0.75, margin: '0 0 12px', fontFamily: 'var(--font-canvas-body)' }}>{title}</p>
+      <p style={{ fontSize: '12px', letterSpacing: '0.16em', textTransform: 'uppercase', color: 'var(--canvas-primary)', opacity: 0.75, margin: '0 0 14px', fontFamily: 'var(--font-canvas-body)' }}>{title}</p>
       {cards.map(card => {
         const isExt = card.href.startsWith('http') || card.isCustom;
         const h = hov === card.id;
         const linkStyle: React.CSSProperties = {
-          display: 'flex', alignItems: 'center', gap: '9px', padding: '6px 8px', borderRadius: '9px',
+          display: 'flex', alignItems: 'center', gap: '10px', padding: '7px 9px', borderRadius: '10px',
           textDecoration: 'none', transition: 'all 0.15s ease', cursor: 'pointer',
           background: h ? 'var(--canvas-surface-high)' : 'transparent',
           color: h ? 'var(--canvas-on-surface)' : 'var(--canvas-on-surface-variant)',
         };
         const inner = (
           <>
-            <span className="material-symbols-outlined" style={{ fontSize: '14px', color: h ? 'var(--canvas-primary)' : 'var(--canvas-on-surface-variant)', fontVariationSettings: h ? "'FILL' 1" : "'FILL' 0", transition: 'color 0.15s ease', flexShrink: 0 }}>{card.icon}</span>
-            <span style={{ fontSize: '13px', fontWeight: 500, fontFamily: 'var(--font-canvas-body)', transition: 'color 0.15s ease' }}>{card.label}</span>
+            <span className="material-symbols-outlined" style={{ fontSize: '16px', color: h ? 'var(--canvas-primary)' : 'var(--canvas-on-surface-variant)', fontVariationSettings: h ? "'FILL' 1" : "'FILL' 0", transition: 'color 0.15s ease', flexShrink: 0 }}>{card.icon}</span>
+            <span style={{ fontSize: '15px', fontWeight: 500, fontFamily: 'var(--font-canvas-body)', transition: 'color 0.15s ease' }}>{card.label}</span>
           </>
         );
         return isExt
@@ -188,12 +188,12 @@ function BentoPanel({ title, cards }: { title: string; cards: CardItem[] }) {
 
 function CategoryPills({ categories, active, onSelect }: { categories: string[]; active: string; onSelect: (c: string) => void }) {
   return (
-    <div style={{ display: 'flex', justifyContent: 'center', gap: '8px', flexWrap: 'wrap' }}>
+    <div style={{ display: 'flex', justifyContent: 'center', gap: '9px', flexWrap: 'wrap' }}>
       {categories.map(cat => {
         const isActive = active === cat;
         return (
           <button key={cat} onClick={() => onSelect(cat)} style={{
-            padding: '7px 22px', borderRadius: '9999px', fontSize: '13px', fontWeight: isActive ? 600 : 400,
+            padding: '8px 25px', borderRadius: '9999px', fontSize: '15px', fontWeight: isActive ? 600 : 400,
             border: 'none', cursor: 'pointer', transition: 'all 0.2s ease',
             background: isActive ? 'var(--canvas-surface-highest)' : 'var(--canvas-surface-high)',
             color: isActive ? 'var(--canvas-on-surface)' : 'var(--canvas-on-surface-variant)',
@@ -213,7 +213,7 @@ function CategoryTabs({ categories, active, onSelect }: { categories: string[]; 
         const isActive = active === cat;
         return (
           <button key={cat} onClick={() => onSelect(cat)} style={{
-            padding: '9px 18px', border: 'none', cursor: 'pointer', fontSize: '13px', fontWeight: isActive ? 600 : 400,
+            padding: '10px 21px', border: 'none', cursor: 'pointer', fontSize: '15px', fontWeight: isActive ? 600 : 400,
             background: 'transparent', fontFamily: 'var(--font-canvas-body)', transition: 'all 0.15s ease',
             color: isActive ? 'var(--canvas-primary)' : 'var(--canvas-on-surface-variant)',
             borderBottom: isActive ? '2px solid var(--canvas-primary)' : '2px solid transparent',
@@ -241,13 +241,13 @@ function Editable({ card, editMode, onEdit, children, style }: {
         onClick={(e) => { e.preventDefault(); e.stopPropagation(); onEdit(card.id); }}
         style={{
           position: 'absolute', inset: 0, cursor: 'pointer', zIndex: 20,
-          borderRadius: '14px',
+          borderRadius: '16px',
           display: 'flex', alignItems: 'center', justifyContent: 'center',
           background: 'rgba(187, 199, 221, 0.06)',
           border: '1.5px dashed rgba(187, 199, 221, 0.28)',
         }}
       >
-        <span className="material-symbols-outlined" style={{ fontSize: '16px', color: 'var(--canvas-primary)', opacity: 0.85, fontVariationSettings: "'FILL' 1" }}>edit</span>
+        <span className="material-symbols-outlined" style={{ fontSize: '18px', color: 'var(--canvas-primary)', opacity: 0.85, fontVariationSettings: "'FILL' 1" }}>edit</span>
       </div>
     </div>
   );
@@ -264,46 +264,46 @@ function CardEditorPanel({ card, categories, saving, onSave, onClose }: {
   const [category, setCategory] = useState(card.category);
 
   const textRow = (lbl: string, value: string, set: (v: string) => void, placeholder?: string) => (
-    <div style={{ marginBottom: '18px' }}>
-      <p style={{ fontSize: '10px', letterSpacing: '0.14em', textTransform: 'uppercase', color: 'var(--canvas-on-surface-variant)', opacity: 0.45, margin: '0 0 8px', fontFamily: 'var(--font-canvas-body)' }}>{lbl}</p>
-      <div style={{ background: 'var(--canvas-surface-highest)', borderRadius: '9px', padding: '0 12px', height: '38px', display: 'flex', alignItems: 'center' }}>
+    <div style={{ marginBottom: '21px' }}>
+      <p style={{ fontSize: '12px', letterSpacing: '0.14em', textTransform: 'uppercase', color: 'var(--canvas-on-surface-variant)', opacity: 0.45, margin: '0 0 9px', fontFamily: 'var(--font-canvas-body)' }}>{lbl}</p>
+      <div style={{ background: 'var(--canvas-surface-highest)', borderRadius: '10px', padding: '0 14px', height: '44px', display: 'flex', alignItems: 'center' }}>
         <input value={value} onChange={e => set(e.target.value)} placeholder={placeholder}
-          style={{ flex: 1, background: 'transparent', border: 'none', outline: 'none', fontSize: '13px', color: 'var(--canvas-on-surface)', fontFamily: 'var(--font-canvas-body)' }} />
+          style={{ flex: 1, background: 'transparent', border: 'none', outline: 'none', fontSize: '15px', color: 'var(--canvas-on-surface)', fontFamily: 'var(--font-canvas-body)' }} />
       </div>
     </div>
   );
 
   return (
-    <div style={{ position: 'fixed', right: 0, top: 0, bottom: 0, width: '240px', zIndex: 200, background: 'var(--canvas-surface)', borderLeft: '1px solid rgba(255,255,255,0.05)', boxShadow: '-12px 0 48px rgba(0,0,0,0.5)', display: 'flex', flexDirection: 'column', fontFamily: 'var(--font-canvas-body)' }}>
-      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '18px 18px 14px', borderBottom: '1px solid rgba(255,255,255,0.05)' }}>
-        <div style={{ display: 'flex', alignItems: 'center', gap: '9px' }}>
-          <span className="material-symbols-outlined" style={{ fontSize: '15px', color: 'var(--canvas-primary)', fontVariationSettings: "'FILL' 1" }}>{icon || card.icon}</span>
-          <span style={{ fontSize: '13px', fontWeight: 600, color: 'var(--canvas-on-surface)' }}>Edit Shortcut</span>
+    <div style={{ position: 'fixed', right: 0, top: 0, bottom: 0, width: '276px', zIndex: 200, background: 'var(--canvas-surface)', borderLeft: '1px solid rgba(255,255,255,0.05)', boxShadow: '-12px 0 48px rgba(0,0,0,0.5)', display: 'flex', flexDirection: 'column', fontFamily: 'var(--font-canvas-body)' }}>
+      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '21px 21px 16px', borderBottom: '1px solid rgba(255,255,255,0.05)' }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+          <span className="material-symbols-outlined" style={{ fontSize: '17px', color: 'var(--canvas-primary)', fontVariationSettings: "'FILL' 1" }}>{icon || card.icon}</span>
+          <span style={{ fontSize: '15px', fontWeight: 600, color: 'var(--canvas-on-surface)' }}>Edit Shortcut</span>
         </div>
-        <button onClick={onClose} style={{ width: '26px', height: '26px', borderRadius: '7px', border: 'none', cursor: 'pointer', background: 'var(--canvas-surface-high)', color: 'var(--canvas-on-surface-variant)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-          <span className="material-symbols-outlined" style={{ fontSize: '14px' }}>close</span>
+        <button onClick={onClose} style={{ width: '30px', height: '30px', borderRadius: '8px', border: 'none', cursor: 'pointer', background: 'var(--canvas-surface-high)', color: 'var(--canvas-on-surface-variant)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+          <span className="material-symbols-outlined" style={{ fontSize: '16px' }}>close</span>
         </button>
       </div>
 
-      <div style={{ flex: 1, overflowY: 'auto', padding: '18px' }}>
+      <div style={{ flex: 1, overflowY: 'auto', padding: '21px' }}>
         {textRow('Label', label, setLabel)}
-        <div style={{ marginBottom: '18px' }}>
-          <p style={{ fontSize: '10px', letterSpacing: '0.14em', textTransform: 'uppercase', color: 'var(--canvas-on-surface-variant)', opacity: 0.45, margin: '0 0 8px', fontFamily: 'var(--font-canvas-body)' }}>Icon</p>
+        <div style={{ marginBottom: '21px' }}>
+          <p style={{ fontSize: '12px', letterSpacing: '0.14em', textTransform: 'uppercase', color: 'var(--canvas-on-surface-variant)', opacity: 0.45, margin: '0 0 9px', fontFamily: 'var(--font-canvas-body)' }}>Icon</p>
           <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-            <div style={{ background: 'var(--canvas-surface-highest)', borderRadius: '9px', padding: '0 12px', height: '38px', display: 'flex', alignItems: 'center', flex: 1 }}>
+            <div style={{ background: 'var(--canvas-surface-highest)', borderRadius: '10px', padding: '0 14px', height: '44px', display: 'flex', alignItems: 'center', flex: 1 }}>
               <input value={icon} onChange={e => setIcon(e.target.value)} placeholder="e.g. home"
-                style={{ flex: 1, background: 'transparent', border: 'none', outline: 'none', fontSize: '13px', color: 'var(--canvas-on-surface)', fontFamily: 'var(--font-canvas-body)' }} />
+                style={{ flex: 1, background: 'transparent', border: 'none', outline: 'none', fontSize: '15px', color: 'var(--canvas-on-surface)', fontFamily: 'var(--font-canvas-body)' }} />
             </div>
-            <span className="material-symbols-outlined" style={{ fontSize: '22px', color: 'var(--canvas-primary)', fontVariationSettings: "'FILL' 1", flexShrink: 0 }}>{icon || 'link'}</span>
+            <span className="material-symbols-outlined" style={{ fontSize: '25px', color: 'var(--canvas-primary)', fontVariationSettings: "'FILL' 1", flexShrink: 0 }}>{icon || 'link'}</span>
           </div>
         </div>
         {textRow('URL', href, setHref, 'https://…')}
 
         <div>
-          <p style={{ fontSize: '10px', letterSpacing: '0.14em', textTransform: 'uppercase', color: 'var(--canvas-on-surface-variant)', opacity: 0.45, margin: '0 0 8px', fontFamily: 'var(--font-canvas-body)' }}>Category</p>
-          <div style={{ display: 'flex', gap: '6px', flexWrap: 'wrap' }}>
+          <p style={{ fontSize: '12px', letterSpacing: '0.14em', textTransform: 'uppercase', color: 'var(--canvas-on-surface-variant)', opacity: 0.45, margin: '0 0 9px', fontFamily: 'var(--font-canvas-body)' }}>Category</p>
+          <div style={{ display: 'flex', gap: '7px', flexWrap: 'wrap' }}>
             {categories.filter(c => c !== 'All').map(cat => (
-              <button key={cat} onClick={() => setCategory(cat)} style={{ padding: '6px 14px', borderRadius: '8px', border: 'none', cursor: 'pointer', fontSize: '12px', fontWeight: 500, fontFamily: 'var(--font-canvas-body)', transition: 'all 0.15s', background: category === cat ? 'var(--canvas-primary)' : 'var(--canvas-surface-highest)', color: category === cat ? 'var(--canvas-bg)' : 'var(--canvas-on-surface-variant)' }}>
+              <button key={cat} onClick={() => setCategory(cat)} style={{ padding: '7px 16px', borderRadius: '9px', border: 'none', cursor: 'pointer', fontSize: '14px', fontWeight: 500, fontFamily: 'var(--font-canvas-body)', transition: 'all 0.15s', background: category === cat ? 'var(--canvas-primary)' : 'var(--canvas-surface-highest)', color: category === cat ? 'var(--canvas-bg)' : 'var(--canvas-on-surface-variant)' }}>
                 {cat}
               </button>
             ))}
@@ -311,8 +311,8 @@ function CardEditorPanel({ card, categories, saving, onSave, onClose }: {
         </div>
       </div>
 
-      <div style={{ padding: '14px 18px', borderTop: '1px solid rgba(255,255,255,0.05)' }}>
-        <button onClick={() => onSave(card.id, { label, icon, href, category })} disabled={saving} style={{ width: '100%', height: '38px', borderRadius: '9px', border: 'none', cursor: saving ? 'default' : 'pointer', fontSize: '13px', fontWeight: 600, background: 'var(--canvas-primary)', color: 'var(--canvas-bg)', fontFamily: 'var(--font-canvas-body)', opacity: saving ? 0.65 : 1 }}>
+      <div style={{ padding: '16px 21px', borderTop: '1px solid rgba(255,255,255,0.05)' }}>
+        <button onClick={() => onSave(card.id, { label, icon, href, category })} disabled={saving} style={{ width: '100%', height: '44px', borderRadius: '10px', border: 'none', cursor: saving ? 'default' : 'pointer', fontSize: '15px', fontWeight: 600, background: 'var(--canvas-primary)', color: 'var(--canvas-bg)', fontFamily: 'var(--font-canvas-body)', opacity: saving ? 0.65 : 1 }}>
           {saving ? 'Saving…' : 'Save'}
         </button>
       </div>
@@ -404,36 +404,36 @@ export default function HomeClient({ user, userId }: Props) {
   };
 
   const clockBar = (
-    <div style={{ display: 'flex', justifyContent: 'flex-end', paddingBottom: '8px' }}>
+    <div style={{ display: 'flex', justifyContent: 'flex-end', paddingBottom: '9px' }}>
       <LiveClock />
     </div>
   );
 
   const greetingBlock = (
     <div style={{ textAlign: 'center' }}>
-      <h1 style={{ fontFamily: 'var(--font-canvas-heading)', fontSize: '52px', fontWeight: 700, letterSpacing: '-0.03em', color: 'var(--canvas-on-surface)', lineHeight: 1.1, margin: 0 }}>{greeting}</h1>
-      <p style={{ fontSize: '17px', color: 'var(--canvas-on-surface-variant)', marginTop: '10px', opacity: 0.7, fontFamily: 'var(--font-canvas-body)' }}>What will we discover today?</p>
+      <h1 style={{ fontFamily: 'var(--font-canvas-heading)', fontSize: '60px', fontWeight: 700, letterSpacing: '-0.03em', color: 'var(--canvas-on-surface)', lineHeight: 1.1, margin: 0 }}>{greeting}</h1>
+      <p style={{ fontSize: '20px', color: 'var(--canvas-on-surface-variant)', marginTop: '12px', opacity: 0.7, fontFamily: 'var(--font-canvas-body)' }}>What will we discover today?</p>
     </div>
   );
 
   const searchBar = (
     <form onSubmit={handleSearch} style={{ width: '100%' }}>
-      <div className="canvas-search-recessed" style={{ height: '58px', borderRadius: '9999px', display: 'flex', alignItems: 'center', padding: '0 24px', gap: '12px', border: '1px solid rgba(255,255,255,0.04)' }}>
-        <span className="material-symbols-outlined" style={{ fontSize: '20px', color: 'var(--canvas-on-surface-variant)', opacity: 0.7 }}>search</span>
+      <div className="canvas-search-recessed" style={{ height: '67px', borderRadius: '9999px', display: 'flex', alignItems: 'center', padding: '0 28px', gap: '14px', border: '1px solid rgba(255,255,255,0.04)' }}>
+        <span className="material-symbols-outlined" style={{ fontSize: '23px', color: 'var(--canvas-on-surface-variant)', opacity: 0.7 }}>search</span>
         <input value={query} onChange={e => setQuery(e.target.value)} placeholder="Search the web or type a URL…"
-          style={{ flex: 1, background: 'transparent', border: 'none', outline: 'none', fontSize: '15px', color: 'var(--canvas-on-surface)', fontFamily: 'var(--font-canvas-body)' }} />
+          style={{ flex: 1, background: 'transparent', border: 'none', outline: 'none', fontSize: '17px', color: 'var(--canvas-on-surface)', fontFamily: 'var(--font-canvas-body)' }} />
       </div>
     </form>
   );
 
   const wrap = (children: React.ReactNode) => (
-    <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', padding: '28px 56px 0', background: 'var(--canvas-bg)' }}>
+    <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', padding: '32px 64px 0', background: 'var(--canvas-bg)' }}>
       {clockBar}{children}
     </div>
   );
 
-  const center = (children: React.ReactNode, pb = '48px') => (
-    <div style={{ flex: 1, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: '26px', maxWidth: '680px', margin: '0 auto', width: '100%', paddingBottom: pb }}>
+  const center = (children: React.ReactNode, pb = '55px') => (
+    <div style={{ flex: 1, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: '30px', maxWidth: '782px', margin: '0 auto', width: '100%', paddingBottom: pb }}>
       {children}
     </div>
   );
@@ -444,8 +444,8 @@ export default function HomeClient({ user, userId }: Props) {
       onClick={() => { setEditMode(v => !v); if (editMode) setEditCardId(null); }}
       title={editMode ? 'Done editing' : 'Edit shortcuts'}
       style={{
-        position: 'fixed', bottom: '28px', right: '28px', zIndex: 100,
-        width: '40px', height: '40px', borderRadius: '12px', border: 'none', cursor: 'pointer',
+        position: 'fixed', bottom: '32px', right: '32px', zIndex: 100,
+        width: '46px', height: '46px', borderRadius: '14px', border: 'none', cursor: 'pointer',
         display: 'flex', alignItems: 'center', justifyContent: 'center',
         background: editMode ? 'var(--canvas-primary)' : 'var(--canvas-surface-high)',
         color: editMode ? 'var(--canvas-bg)' : 'var(--canvas-on-surface-variant)',
@@ -453,7 +453,7 @@ export default function HomeClient({ user, userId }: Props) {
         transition: 'all 0.15s',
       }}
     >
-      <span className="material-symbols-outlined" style={{ fontSize: '17px' }}>
+      <span className="material-symbols-outlined" style={{ fontSize: '20px' }}>
         {editMode ? 'check' : 'edit'}
       </span>
     </button>
@@ -467,7 +467,7 @@ export default function HomeClient({ user, userId }: Props) {
           <>{greetingBlock}{searchBar}
             <CategoryTabs categories={categories} active={activeCategory} onSelect={setActiveCategory} />
             {visibleCards.length > 0 && (
-              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '12px', width: '100%' }}>
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '14px', width: '100%' }}>
                 {visibleCards.map(card => (
                   <Editable key={card.id} card={card} editMode={editMode} onEdit={setEditCardId}>
                     <GridCard card={card} />
@@ -491,7 +491,7 @@ export default function HomeClient({ user, userId }: Props) {
           <>{greetingBlock}{searchBar}
             <CategoryPills categories={categories} active={activeCategory} onSelect={setActiveCategory} />
             {visibleCards.length > 0 && (
-              <div style={{ display: 'flex', flexWrap: 'wrap', gap: '10px', justifyContent: 'center' }}>
+              <div style={{ display: 'flex', flexWrap: 'wrap', gap: '12px', justifyContent: 'center' }}>
                 {visibleCards.map(card => (
                   <Editable key={card.id} card={card} editMode={editMode} onEdit={setEditCardId} style={{ display: 'inline-block' }}>
                     <StreamCard card={card} />
@@ -514,7 +514,7 @@ export default function HomeClient({ user, userId }: Props) {
         {wrap(center(
           <>{greetingBlock}{searchBar}
             {allCards.length > 0 && (
-              <div style={{ display: 'flex', flexWrap: 'wrap', gap: '12px', justifyContent: 'center' }}>
+              <div style={{ display: 'flex', flexWrap: 'wrap', gap: '14px', justifyContent: 'center' }}>
                 {allCards.map(card => (
                   <Editable key={card.id} card={card} editMode={editMode} onEdit={setEditCardId} style={{ display: 'inline-flex' }}>
                     <CompactCard card={card} />
@@ -545,26 +545,26 @@ export default function HomeClient({ user, userId }: Props) {
 
     return (
       <>
-        <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', background: 'var(--canvas-bg)', padding: '28px 56px 0' }}>
+        <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', background: 'var(--canvas-bg)', padding: '32px 64px 0' }}>
           <div style={{ display: 'flex', justifyContent: 'flex-end' }}><LiveClock /></div>
 
-          <div style={{ flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'center', paddingBottom: '48px', gap: '32px' }}>
-            <div style={{ display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between', gap: '32px' }}>
+          <div style={{ flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'center', paddingBottom: '55px', gap: '37px' }}>
+            <div style={{ display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between', gap: '37px' }}>
               <div>
-                <h1 style={{ fontFamily: 'var(--font-canvas-heading)', fontSize: '54px', fontWeight: 700, letterSpacing: '-0.03em', color: 'var(--canvas-on-surface)', lineHeight: 1.05, margin: 0 }}>{greeting}</h1>
+                <h1 style={{ fontFamily: 'var(--font-canvas-heading)', fontSize: '62px', fontWeight: 700, letterSpacing: '-0.03em', color: 'var(--canvas-on-surface)', lineHeight: 1.05, margin: 0 }}>{greeting}</h1>
               </div>
-              <form onSubmit={handleSearch} style={{ width: '340px', flexShrink: 0 }}>
-                <div className="canvas-search-recessed" style={{ height: '50px', borderRadius: '9999px', display: 'flex', alignItems: 'center', padding: '0 20px', gap: '10px', border: '1px solid rgba(255,255,255,0.04)' }}>
-                  <span className="material-symbols-outlined" style={{ fontSize: '18px', color: 'var(--canvas-on-surface-variant)', opacity: 0.7 }}>search</span>
+              <form onSubmit={handleSearch} style={{ width: '391px', flexShrink: 0 }}>
+                <div className="canvas-search-recessed" style={{ height: '58px', borderRadius: '9999px', display: 'flex', alignItems: 'center', padding: '0 23px', gap: '12px', border: '1px solid rgba(255,255,255,0.04)' }}>
+                  <span className="material-symbols-outlined" style={{ fontSize: '21px', color: 'var(--canvas-on-surface-variant)', opacity: 0.7 }}>search</span>
                   <input value={query} onChange={e => setQuery(e.target.value)} placeholder="Search…"
-                    style={{ flex: 1, background: 'transparent', border: 'none', outline: 'none', fontSize: '14px', color: 'var(--canvas-on-surface)', fontFamily: 'var(--font-canvas-body)' }} />
+                    style={{ flex: 1, background: 'transparent', border: 'none', outline: 'none', fontSize: '16px', color: 'var(--canvas-on-surface)', fontFamily: 'var(--font-canvas-body)' }} />
                 </div>
               </form>
             </div>
 
             {allCards.length > 0 && (
-              <div style={{ display: 'grid', gridTemplateColumns: `repeat(3, 1fr) ${populatedPanels.map(() => '1.6fr').join(' ')}`, gap: '14px', alignItems: 'stretch' }}>
-                <div style={{ gridColumn: '1 / 4', display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gridTemplateRows: `repeat(${Math.max(2, Math.ceil(paddedCount / 3))}, 1fr)`, gap: '14px' }}>
+              <div style={{ display: 'grid', gridTemplateColumns: `repeat(3, 1fr) ${populatedPanels.map(() => '1.6fr').join(' ')}`, gap: '16px', alignItems: 'stretch' }}>
+                <div style={{ gridColumn: '1 / 4', display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gridTemplateRows: `repeat(${Math.max(2, Math.ceil(paddedCount / 3))}, 1fr)`, gap: '16px' }}>
                   {Array.from({ length: paddedCount }).map((_, i) =>
                     gridCards[i]
                       ? (
@@ -572,7 +572,7 @@ export default function HomeClient({ user, userId }: Props) {
                           <BentoSquare card={gridCards[i]} />
                         </Editable>
                       )
-                      : <div key={`empty-${i}`} style={{ aspectRatio: '1/1', borderRadius: '18px', background: 'var(--canvas-surface)', border: '1px solid rgba(255,255,255,0.02)', boxShadow: `inset 2px 2px 5px var(--canvas-shadow-dark), inset -2px -2px 5px var(--canvas-shadow-light)` }} />
+                      : <div key={`empty-${i}`} style={{ aspectRatio: '1/1', borderRadius: '21px', background: 'var(--canvas-surface)', border: '1px solid rgba(255,255,255,0.02)', boxShadow: `inset 2px 2px 5px var(--canvas-shadow-dark), inset -2px -2px 5px var(--canvas-shadow-light)` }} />
                   )}
                 </div>
                 {populatedPanels.map(cat => (

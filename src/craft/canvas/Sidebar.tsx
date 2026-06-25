@@ -15,34 +15,10 @@ const navItems = [
 // TODO(extension): browser internal links (chrome://, edge://, brave://, about:)
 // are blocked by the browser sandbox from web pages. Re-enable once the Chrome
 // extension is built and navigation is handled via chrome.tabs.update().
-//
-// type BrowserLinks = { bookmarks: string; downloads: string; history: string } | null;
-//
-// function detectBrowserLinks(): BrowserLinks {
-//   const ua = navigator.userAgent;
-//   const uad = (navigator as { userAgentData?: { brands: { brand: string }[] } }).userAgentData;
-//   const brands = uad?.brands?.map(b => b.brand) ?? [];
-//
-//   if (brands.some(b => b.includes('Brave')))
-//     return { bookmarks: 'brave://bookmarks', downloads: 'brave://downloads', history: 'brave://history' };
-//   if (brands.some(b => b.includes('Microsoft Edge')) || /Edg\//.test(ua))
-//     return { bookmarks: 'edge://favorites', downloads: 'edge://downloads', history: 'edge://history' };
-//   if (brands.some(b => b.includes('Google Chrome') || b.includes('Chromium')) || /Chrome\//.test(ua))
-//     return { bookmarks: 'chrome://bookmarks', downloads: 'chrome://downloads', history: 'chrome://history' };
-//   if (/Firefox\//.test(ua))
-//     return { bookmarks: 'about:bookmarks', downloads: 'about:downloads', history: 'about:history' };
-//   return null;
-// }
-//
-// const BROWSER_NAV = [
-//   { key: 'bookmarks', icon: 'bookmarks',  label: 'Bookmarks' },
-//   { key: 'downloads', icon: 'download',   label: 'Downloads' },
-//   { key: 'history',   icon: 'history',    label: 'History'   },
-// ] as const;
 
 const COLLAPSED_KEY = 'morrow_sidebar_collapsed';
-const EXPANDED_W = 280;
-const COLLAPSED_W = 64;
+const EXPANDED_W = 322;
+const COLLAPSED_W = 74;
 
 export default function Sidebar({ displayName }: { displayName: string }) {
   const path = usePathname();
@@ -77,12 +53,12 @@ export default function Sidebar({ displayName }: { displayName: string }) {
       {/* Top accent bar */}
       <div style={{ height: '3px', background: 'var(--canvas-primary)', opacity: 0.35, flexShrink: 0 }} />
 
-      <div style={{ display: 'flex', flexDirection: 'column', flex: 1, padding: collapsed ? '16px 10px' : '20px 16px', gap: '6px', transition: 'padding 0.22s ease' }}>
+      <div style={{ display: 'flex', flexDirection: 'column', flex: 1, padding: collapsed ? '18px 12px' : '23px 18px', gap: '6px', transition: 'padding 0.22s ease' }}>
 
         {/* Header row: wordmark (expanded) + collapse toggle */}
-        <div style={{ display: 'flex', alignItems: 'center', justifyContent: collapsed ? 'center' : 'space-between', padding: collapsed ? '4px 0 16px' : '4px 4px 16px', minHeight: '40px' }}>
+        <div style={{ display: 'flex', alignItems: 'center', justifyContent: collapsed ? 'center' : 'space-between', padding: collapsed ? '5px 0 18px' : '5px 5px 18px', minHeight: '46px' }}>
           {!collapsed && (
-            <span style={{ fontFamily: 'var(--font-canvas-heading)', fontSize: '17px', letterSpacing: '-0.02em', userSelect: 'none' }}>
+            <span style={{ fontFamily: 'var(--font-canvas-heading)', fontSize: '20px', letterSpacing: '-0.02em', userSelect: 'none' }}>
               <span style={{ fontWeight: 700, color: 'var(--canvas-primary)' }}>Mor</span>
               <span style={{ fontWeight: 400, color: 'var(--canvas-on-surface-variant)' }}>row</span>
             </span>
@@ -91,7 +67,7 @@ export default function Sidebar({ displayName }: { displayName: string }) {
             onClick={toggle}
             title={collapsed ? 'Expand sidebar' : 'Collapse sidebar'}
             style={{
-              width: '30px', height: '30px', borderRadius: '9px', border: 'none', cursor: 'pointer',
+              width: '35px', height: '35px', borderRadius: '10px', border: 'none', cursor: 'pointer',
               display: 'flex', alignItems: 'center', justifyContent: 'center',
               background: 'var(--canvas-surface-high)',
               color: 'var(--canvas-on-surface-variant)',
@@ -101,7 +77,7 @@ export default function Sidebar({ displayName }: { displayName: string }) {
             onMouseEnter={e => { (e.currentTarget as HTMLButtonElement).style.color = 'var(--canvas-primary)'; }}
             onMouseLeave={e => { (e.currentTarget as HTMLButtonElement).style.color = 'var(--canvas-on-surface-variant)'; }}
           >
-            <span className="material-symbols-outlined" style={{ fontSize: '16px' }}>
+            <span className="material-symbols-outlined" style={{ fontSize: '18px' }}>
               {collapsed ? 'chevron_right' : 'chevron_left'}
             </span>
           </button>
@@ -119,10 +95,10 @@ export default function Sidebar({ displayName }: { displayName: string }) {
                 style={{
                   display: 'flex', alignItems: 'center',
                   justifyContent: collapsed ? 'center' : 'flex-start',
-                  gap: collapsed ? 0 : '13px',
-                  padding: collapsed ? '10px 0' : '10px 14px',
-                  borderRadius: '12px',
-                  fontSize: '14px', fontWeight: active ? 600 : 400,
+                  gap: collapsed ? 0 : '15px',
+                  padding: collapsed ? '12px 0' : '12px 16px',
+                  borderRadius: '14px',
+                  fontSize: '16px', fontWeight: active ? 600 : 400,
                   color: active ? 'var(--canvas-primary)' : 'var(--canvas-on-surface-variant)',
                   background: active ? 'var(--canvas-surface-high)' : 'transparent',
                   border: active ? '1px solid rgba(255,255,255,0.06)' : '1px solid transparent',
@@ -130,39 +106,35 @@ export default function Sidebar({ displayName }: { displayName: string }) {
                   textDecoration: 'none', transition: 'all 0.15s ease',
                   overflow: 'hidden', whiteSpace: 'nowrap',
                 }}>
-                <span className="material-symbols-outlined" style={{ fontSize: '19px', fontVariationSettings: active ? "'FILL' 1" : "'FILL' 0", flexShrink: 0 }}>{item.icon}</span>
+                <span className="material-symbols-outlined" style={{ fontSize: '22px', fontVariationSettings: active ? "'FILL' 1" : "'FILL' 0", flexShrink: 0 }}>{item.icon}</span>
                 {!collapsed && item.label}
               </Link>
             );
           })}
-
-          {/* TODO(extension): browser shortcuts (Bookmarks, Downloads, History)
-              commented until chrome.tabs.update() is available in the extension */}
         </nav>
 
         {/* User pill */}
         <div style={{
-          marginTop: '8px', borderRadius: '12px',
+          marginTop: '9px', borderRadius: '14px',
           display: 'flex', alignItems: 'center',
           justifyContent: collapsed ? 'center' : 'flex-start',
-          gap: collapsed ? 0 : '10px',
-          padding: collapsed ? '10px 0' : '10px 12px',
+          gap: collapsed ? 0 : '12px',
+          padding: collapsed ? '12px 0' : '12px 14px',
           background: 'var(--canvas-surface-high)',
           boxShadow: `inset 4px 4px 8px var(--canvas-shadow-dark), inset -4px -4px 8px var(--canvas-shadow-light)`,
           border: '1px solid rgba(255,255,255,0.03)',
           overflow: 'hidden',
         }}>
-          {/* Avatar — doubles as sign-out trigger when collapsed */}
           {collapsed ? (
             <button
               onClick={() => signOut({ callbackUrl: '/' })}
               title={`Sign out (${displayName})`}
               style={{
-                width: '30px', height: '30px', borderRadius: '50%', flexShrink: 0, border: 'none', cursor: 'pointer',
+                width: '35px', height: '35px', borderRadius: '50%', flexShrink: 0, border: 'none', cursor: 'pointer',
                 display: 'flex', alignItems: 'center', justifyContent: 'center',
                 background: 'var(--canvas-surface-highest)',
                 boxShadow: `-2px -2px 5px var(--canvas-shadow-light), 2px 2px 5px var(--canvas-shadow-dark)`,
-                color: 'var(--canvas-primary)', fontSize: '12px', fontWeight: 700,
+                color: 'var(--canvas-primary)', fontSize: '14px', fontWeight: 700,
                 fontFamily: 'var(--font-canvas-heading)',
               }}>
               {initial}
@@ -170,23 +142,23 @@ export default function Sidebar({ displayName }: { displayName: string }) {
           ) : (
             <>
               <div style={{
-                width: '30px', height: '30px', borderRadius: '50%', flexShrink: 0,
+                width: '35px', height: '35px', borderRadius: '50%', flexShrink: 0,
                 display: 'flex', alignItems: 'center', justifyContent: 'center',
                 background: 'var(--canvas-surface-highest)',
                 boxShadow: `-2px -2px 5px var(--canvas-shadow-light), 2px 2px 5px var(--canvas-shadow-dark)`,
-                color: 'var(--canvas-primary)', fontSize: '12px', fontWeight: 700,
+                color: 'var(--canvas-primary)', fontSize: '14px', fontWeight: 700,
                 fontFamily: 'var(--font-canvas-heading)',
               }}>
                 {initial}
               </div>
-              <span style={{ fontSize: '13px', fontWeight: 500, color: 'var(--canvas-on-surface)', flex: 1, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
+              <span style={{ fontSize: '15px', fontWeight: 500, color: 'var(--canvas-on-surface)', flex: 1, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
                 {displayName}
               </span>
               <button
                 onClick={() => signOut({ callbackUrl: '/' })}
                 title="Sign out"
                 style={{
-                  width: '28px', height: '28px', borderRadius: '8px', flexShrink: 0,
+                  width: '32px', height: '32px', borderRadius: '9px', flexShrink: 0,
                   display: 'flex', alignItems: 'center', justifyContent: 'center',
                   background: 'rgba(186,26,26,0.2)', border: 'none', cursor: 'pointer', color: '#ffdad6',
                   transition: 'background 0.15s ease',
@@ -194,7 +166,7 @@ export default function Sidebar({ displayName }: { displayName: string }) {
                 onMouseEnter={e => { (e.currentTarget as HTMLButtonElement).style.background = 'rgba(186,26,26,0.4)'; }}
                 onMouseLeave={e => { (e.currentTarget as HTMLButtonElement).style.background = 'rgba(186,26,26,0.2)'; }}
               >
-                <span className="material-symbols-outlined" style={{ fontSize: '16px' }}>logout</span>
+                <span className="material-symbols-outlined" style={{ fontSize: '18px' }}>logout</span>
               </button>
             </>
           )}
